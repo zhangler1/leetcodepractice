@@ -14,32 +14,44 @@
 from typing import List
 class Solution:
     def longestMountain(self, A: List[int]) -> int:
-        maxdistance=0
-        lastLocalminmumindex=None
+        if len(A)<3:
+            return 0
+
+        maxlength=-1
+        head=None
+        tail=None
+
         for i in range(len(A)):
+            if i-1>=0 and A[i]>A[i-1]:
+                if  head is None:
+                    head=i-1
 
-           if i>1:
-               if i<len(A)-1 :
-                   if A[i-1]<=A[i] and A[i]<=A[i+1]:
-                       Localminmumindex=i
-                       if lastLocalminmumindex:
-                           if Localminmumindex-lastLocalminmumindex > maxdistance:
-                               maxdistance=Localminmumindex-lastLocalminmumindex
-                       lastLocalminmumindex=Localminmumindex
+            elif i-1>=0 and A[i]<A[i-1]:
+                if not head is None:
+                    if tail is None:
+                        tail=i
+                    else:
+                        tail+=1
+                    
+            else:
+                if not tail is None and not head is None  and (tail-head>maxlength):
+                    maxlength=tail-head
+                head=None
+                tail=None
+                if i - 1 >= 0 and A[i] == A[i - 1]:
+                    head = None
+                    tail = None
+            if not tail is None and not head is None and i==len(A)-1 and maxlength==-1:
+                maxlength = tail - head
 
 
-               elif A[i-1]<=A[i]:
-                   Localminmumindex = i
-                   if lastLocalminmumindex:
-                       if Localminmumindex - lastLocalminmumindex > maxdistance:
-                           maxdistance = Localminmumindex - lastLocalminmumindex
-                   lastLocalminmumindex = Localminmumindex
-           elif A[i]<=A[i+1]:
-               Localminmumindex = i
-               if lastLocalminmumindex:
-                   if Localminmumindex - lastLocalminmumindex > maxdistance:
-                       maxdistance = Localminmumindex - lastLocalminmumindex
-               lastLocalminmumindex = Localminmumindex
-        return maxdistance
+        return maxlength+1
 
-print(Solution().longestMountain([2,1,4,7,3,2,5]))
+
+
+
+
+
+
+print(Solution().longestMountain(
+[1,2,0,2,0,2]))

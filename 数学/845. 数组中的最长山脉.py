@@ -38,9 +38,6 @@ class Solution:
                     maxlength=tail-head
                 head=None
                 tail=None
-                if i - 1 >= 0 and A[i] == A[i - 1]:
-                    head = None
-                    tail = None
             if not tail is None and not head is None and i==len(A)-1 and maxlength==-1:
                 maxlength = tail - head
 

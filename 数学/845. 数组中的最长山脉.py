@@ -25,7 +25,12 @@ class Solution:
             if i-1>=0 and A[i]>A[i-1]:
                 if  head is None:
                     head=i-1
-
+                    tail = None
+                elif not tail is None and not head is None :
+                    if (tail - head > maxlength):
+                        maxlength = tail - head
+                    head=i-1
+                    tail = None
             elif i-1>=0 and A[i]<A[i-1]:
                 if not head is None:
                     if tail is None:
@@ -38,8 +43,9 @@ class Solution:
                     maxlength=tail-head
                 head=None
                 tail=None
-            if not tail is None and not head is None and i==len(A)-1 and maxlength==-1:
-                maxlength = tail - head
+            if not tail is None and not head is None and i==len(A)-1 :
+                if  (tail-head>maxlength):
+                    maxlength = tail - head
 
 
         return maxlength+1
@@ -51,4 +57,4 @@ class Solution:
 
 
 print(Solution().longestMountain(
-[1,2,0,2,0,2]))
+[3,3,1,0,1,0,1,0,2,1]))

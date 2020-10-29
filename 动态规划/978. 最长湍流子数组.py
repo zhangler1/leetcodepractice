@@ -15,26 +15,38 @@ class Solution:
     def maxTurbulenceSize(self, A: List[int]) -> int:
         if not A :
             return 0
+        if len(A)==1:
+            return 1
         n=len(A)
-        dp=[2 for _ in range(n)]
+        dp=[1 for _ in range(n)]
         def evenbig( A: List[int],k:int):
-            return  int((A[k]>A[k-1]))!=bool((k%2))
+            if k%2==0:
+                return A[k]>A[k-1]
+            else:
+                return  A[k]<A[k-1]
         def oddbig( A: List[int],k:int):
-            return  int((A[k]>A[k-1]))^(k%2)==0
-        for i in range(2,n):
-            if oddbig(A,i-1):
+            if k % 2 == 1:
+                return A[k] > A[k - 1]
+            else:
+                return A[k] < A[k - 1]
+        for i in range(1,n):
+            if i-1>=1 and oddbig(A,i-1):
                 if oddbig(A,i):
                     dp[i]=dp[i-1]+1
-
             else:
-                if evenbig(A,i-1):
+                if oddbig(A,i):
+                    dp[i]=2
+            if i-1>=1 and evenbig(A,i-1):
                     if evenbig(A, i):
                         dp[i]=dp[i-1]+1
+            else:
+                    if evenbig(A, i):
+                        dp[i] = 2
 
-        return dp[n-1]
+        return max(dp)
 
 if __name__ == '__main__':
-    print(Solution().maxTurbulenceSize([9,4,2,10,7,8,8,1,9]))
+    print(Solution().maxTurbulenceSize([9,9]))
 
 
 

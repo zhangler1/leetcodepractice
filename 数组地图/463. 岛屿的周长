@@ -1,0 +1,18 @@
+from  typing import  List
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        if not grid:
+            return 0
+        n=sum(sum(row) for row in grid)
+        rown=len(grid)
+        coln=len(grid[0])
+        adjson=0
+        for ridx in range(len(grid)):
+            for eidx in range(len(grid[ridx])):
+                if grid[ridx][eidx]==1:
+                   adjson+=sum([grid[ridx+dir[0]][eidx+dir[1]]for dir in [(0,1),(1,0),(-1,0),(0,-1)] if (-1<ridx+dir[0] and ridx+dir[0]<rown and -1<eidx+dir[1] and eidx+dir[1]<coln )])
+
+        return 4*n-1*adjson
+
+if __name__ == '__main__':
+    print(Solution().islandPerimeter([[1]]))

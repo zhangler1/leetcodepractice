@@ -12,7 +12,7 @@ stopwords=[a.strip(" |\"|\'|\n") for a in open("stopwords",encoding="utf-8")]
 a=".+?"
 print(data.loc[3,"Awardee"])
 
-from 心阳.permute生成全排列  import Solution
+from 大学名称清洗.permute生成全排列  import Solution
 for target in targets:
     print(target,"-----------------------")
 

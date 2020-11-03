@@ -14,7 +14,7 @@ class Solution:
                     pre = char
 
                 CommonPrefix.append(char)
-
+                                               
             return  "".join(CommonPrefix)
 
 

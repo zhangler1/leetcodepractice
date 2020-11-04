@@ -1,5 +1,5 @@
 from typing import List
-class Solution:
+                        (class Solutiol;ln  )
     def sumOfDistancesInTree(self, N: int, edges: List[List[int]]) -> List[int]:
 
         def dfs1(u, f):

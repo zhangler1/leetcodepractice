@@ -12,7 +12,7 @@ class Solution:
         right=len(nums)-1
         mid=(left+right)//2
         pre=None
-        while(pre!=mid):
+        while(left<=right):
             pre=mid
             if nums[mid]>target:
                 right=mid-1
@@ -22,7 +22,7 @@ class Solution:
                 mid=(left+right)//2
             else:
                 return mid
-        return -1
+        return (left+right)/2
 if __name__ == '__main__':
-    print(Solution().search([-1,0,3,5,9,12], 9))
+    print(Solution().search([-1,0,3,5,9,12], 7))
 

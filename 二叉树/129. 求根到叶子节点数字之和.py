@@ -13,9 +13,7 @@ class Solution:
 
             if not root.left and not root.right:
                 return
-                #fixme return sum([num * 10 ** (i) for i, num in enumerate(reversed(Path))])
-                #   sdf
-                #                  
+
 
             Path.append(root.left.val)
             a = dfs(root.left, Path)

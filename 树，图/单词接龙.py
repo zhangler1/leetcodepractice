@@ -5,7 +5,7 @@ from collections import defaultdict
 class Solution:
     nodenum=0
     wordid={}
-    edge=defaultdict(set)
+    edge=defaultdict(list)
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         #建设图
         def addnode(word:str): #既可以把所有的字符转换成编号
@@ -19,8 +19,8 @@ class Solution:
                 tem=word
                 tem=tem.replace(char,"*")
                 addnode(tem)
-                Solution.edge[Solution.wordid[word]].add(Solution.wordid[tem])
-                Solution.edge[Solution.wordid[tem]].add(Solution.wordid[word])
+                Solution.edge[Solution.wordid[word]].append(Solution.wordid[tem])
+                Solution.edge[Solution.wordid[tem]].append(Solution.wordid[word])
 
         for word in wordList:
             addedge(word)
@@ -28,7 +28,7 @@ class Solution:
         addedge(beginWord)
         if endWord not in wordList:
             return 0
-        dis=[float("inf")]*Solution.nodenum  #建立数字，逐步更新距离
+        dis=[float("inf")]*Solution.nodenum  #建立数字，逐步更新距离，同时十分关键的：用这个判断是否见过这个节点
         dis[Solution.wordid[beginWord]]=0   #初始只有到自己的距离是最短的
 
         queue=deque()

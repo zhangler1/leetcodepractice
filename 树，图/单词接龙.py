@@ -2,7 +2,7 @@ from collections import deque
 from typing import Mapping
 from typing import List
 from collections import defaultdict
-class Solution:
+class Solution():
     nodenum=0
     wordid={}
     edge=defaultdict(list)
@@ -19,13 +19,21 @@ class Solution:
                 tem=word
                 tem=tem.replace(char,"*")
                 addnode(tem)
+
                 Solution.edge[Solution.wordid[word]].append(Solution.wordid[tem])
+
+
                 Solution.edge[Solution.wordid[tem]].append(Solution.wordid[word])
 
         for word in wordList:
             addedge(word)
 
         addedge(beginWord)
+
+
+
+
+
         if endWord not in wordList:
             return 0
         dis=[float("inf")]*Solution.nodenum  #建立数字，逐步更新距离，同时十分关键的：用这个判断是否见过这个节点

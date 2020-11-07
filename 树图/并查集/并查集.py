@@ -11,12 +11,12 @@ class UnionFindSet( ):
         yroot=self.find(y)
         #需要在二者不一致时赋值，一致时说明是同一集合中，无需合并，因为很多关系因为双向的，所以会赋值2次
         if xroot!=yroot:
-            self.parent[xroot]=yroot
+            self.parent[xroot]=yroot#也因为赋值时任意的，所以可以这样随便使用方向。
     def find(self,x:int):
         # 顺着路径找到根节点
         # 修改根节点
         path=[]
-        while(self.parent[x]!=-1):
+        while(self.parent[x]>=0):  #顺着数组寻找根节点
             path.append(x)
             x=self.parent[x]
         #以根结束

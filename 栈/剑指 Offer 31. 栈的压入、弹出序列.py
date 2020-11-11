@@ -10,7 +10,7 @@ class Solution:
             if len(push)==0 :
                 return True
             stack.append(push.popleft())
-            while(len(pop)!=0):
+            while(len(pop)!=0):  #这个还是不错的必须要把pop处理完
                 if len(stack)!=0 and stack[-1]==pop[0]:
                     stack.pop()
                     pop.popleft()

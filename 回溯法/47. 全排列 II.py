@@ -16,4 +16,4 @@ class Solution:
             arrange.pop()
         
 
-print(Solution().permuteUnique(["a","a ","a"]))
+print(Solution().permuteUnique(["a","a","a"]))

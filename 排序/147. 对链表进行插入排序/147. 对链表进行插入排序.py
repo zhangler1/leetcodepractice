@@ -28,7 +28,7 @@ class Solution:
             p.next=post
             p=tem
         return header.next
-from 链表.链表序列化 import LinkList
+from 链表.链表序列化与打印 import LinkList
 if __name__ == '__main__':
 
     print(Solution().insertionSortList(LinkList([4,2,1,3]).head))

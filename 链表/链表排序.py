@@ -61,20 +61,3 @@ class Solution :
                   p = p.next
                   t = t.next
           return head.next
-
-
-          
-
-
-
-
-
-
-
-          
-
-          
-
-
-
-

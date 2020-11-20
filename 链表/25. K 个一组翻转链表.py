@@ -44,7 +44,7 @@ class Solution:
 
 
 
-from 链表.链表序列化 import LinkList
+from 链表.链表序列化与打印 import LinkList
 
 print(Solution().reverseKGroup(LinkList([1,2,3,4,5]).head,2))
 

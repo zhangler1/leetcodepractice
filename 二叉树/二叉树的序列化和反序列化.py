@@ -4,6 +4,11 @@ class TreeNode(object):
         self.val = x
         self.left = None
         self.right = None
+
+    def __repr__(self) -> str:
+        return self.val
+
+
 from collections import deque
 class Codec:
 

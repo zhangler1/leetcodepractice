@@ -4,7 +4,7 @@ class ListNode:
      self.next=next
 
  def __repr__(self) -> str:
-     return str(self.val)+self.next.__repr__()
+     return f" {self.val} ->{self.next.__repr__()}"
     #None的repr是“None”
 from  typing import  List
 class LinkList:

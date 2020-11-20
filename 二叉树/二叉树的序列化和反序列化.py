@@ -6,7 +6,7 @@ class TreeNode(object):
         self.right = None
 
     def __repr__(self) -> str:
-        return self.val
+        return str(self.val)
 
 
 from collections import deque

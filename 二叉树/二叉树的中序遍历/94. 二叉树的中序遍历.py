@@ -12,14 +12,16 @@ class Solution:
         if not root:
             return None
         ans=[]
-        cur=root
-        while(cur!=None or len(recursionStack)!=0):
+        cur:TreeNode=root
+        #不要忘记外卡选手
+        while cur!=None or len(recursionStack)!=0:
             while(cur!=None):
                 recursionStack.append(cur)
                 cur=cur.left
             cur=recursionStack.pop()
             ans.append(cur.val)
-            cur=cur.right                    
+            cur=cur.right
+
         return ans
 
 from 二叉树.二叉树的序列化和反序列化 import Codec

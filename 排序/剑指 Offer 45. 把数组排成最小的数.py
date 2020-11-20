@@ -1,5 +1,5 @@
 from typing import List, Text
-
+#今天终于学会了如何比较了
 
 class compare2(str):
 

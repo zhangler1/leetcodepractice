@@ -23,11 +23,38 @@ class DLinkedList(Iterator,List):
 
 
     def pop(self, __index: int = ...) ->Any :
+        if  self.head.next==self.head:
+            raise IndexError("从空链表里弹出")
+        i=0
+        p=self.head
+        pre=self.head
+        while(i<=__index):
+            pre=p
+            p=p.next
+            i+=1
+        pre.next=p.next #
+        pre.next.pre=pre
+        p.next=None
+        p.pre=None
+        return p.val
 
-        return
 
     def insert(self, __index: int, __object: Any) -> None:
-        super().insert(__index, __object)
+        p=self.head
+        pre=self.head   #通常附加条件,即可避免终止情况和初始情况相同的情况
+        i=0
+        while(i<=__index ):
+            pre=p
+            p=p.next
+            i+=1
+
+        pre.next=ListNode(__object)
+        pre.next.pre=pre
+        pre.next.next=p
+        p.pre=pre.next
+
+
+
 
     def __iter__(self) :
         self.p=self.head.next #返回一个可初始化的函数，次函数返回一个迭代器
@@ -59,8 +86,16 @@ class DLinkedList(Iterator,List):
          pre.next=self.head
          self.head.pre=pre
 if __name__ == '__main__':
-
-        print(DLinkedList([1,23,123]))
+        d=DLinkedList([1, 23, 123])
+        print(d.pop(0))
+        print(d)
+        print(d.insert(2,6))
+        print(d)
+        print(d.pop(0))
+        print(d.pop(0))
+        print(d.pop(0))
+        print(d.pop(0))
+        print(d.pop(0))
 
 
 

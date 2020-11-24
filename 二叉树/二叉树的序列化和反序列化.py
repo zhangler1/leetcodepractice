@@ -6,7 +6,7 @@ class TreeNode(object):
         self.right = None
 
     def __repr__(self) -> str:
-        return str(self.val)
+        return f"{self.left.__repr__()}<-{str(self.val)}->{self.right.__repr__()}"
 
 
 from collections import deque

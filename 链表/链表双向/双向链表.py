@@ -1,4 +1,4 @@
-from typing import List, Iterator,Any
+from typing import List, Iterator,Any ,overload
 
 
 class ListNode():
@@ -20,26 +20,55 @@ class DummyNode(ListNode):
 
 class DLinkedList(Iterator,List):
     #有多少变量是需要整个类共有的？？整个类一共实例化多少实例？？
+    @overload
+    def pop(self):
+        pass
 
+    def pop(self, __index: int =...) ->Any :
+        '''
 
-    def pop(self, __index: int = ...) ->Any :
+        :param __index:
+        :type __index:
+        :return: 
+        :rtype:
+        '''
+        if __index==...:
+            if  self.head.next==self.head:
+                raise IndexError("从空链表里弹出")
+            p=self.head
+            pre:ListNode=self.head
+            while(pre==self.head or p!=self.head):
+                pre=p
+                p=p.next
+            pre.pre.next=p #
+            p.pre=pre.pre
+            return pre.val
         if  self.head.next==self.head:
             raise IndexError("从空链表里弹出")
-        i=0
-        p=self.head
-        pre=self.head
-        while(i<=__index):
-            pre=p
-            p=p.next
-            i+=1
-        pre.next=p.next #
-        pre.next.pre=pre
-        p.next=None
-        p.pre=None
-        return p.val
-
+        else:
+            i=0
+            p=self.head
+            pre=self.head
+            while(i<=__index):
+                pre=p
+                p=p.next
+                i+=1
+            pre.next=p.next #
+            pre.next.pre=pre
+            p.next=None
+            p.pre=None
+            return p.val
 
     def insert(self, __index: int, __object: Any) -> None:
+        '''
+
+        asdfasdf
+        Args:
+            __index (int):
+            __object (int):
+
+        Returns: asdfasdf
+        '''
         p=self.head
         pre=self.head   #通常附加条件,即可避免终止情况和初始情况相同的情况
         i=0
@@ -91,11 +120,11 @@ if __name__ == '__main__':
         print(d)
         print(d.insert(2,6))
         print(d)
-        print(d.pop(0))
-        print(d.pop(0))
-        print(d.pop(0))
-        print(d.pop(0))
-        print(d.pop(0))
+        print(d.pop())
+        print(d.pop())
+        print(d.pop())
+
+        print(d)
 
 
 

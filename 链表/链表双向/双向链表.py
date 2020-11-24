@@ -70,7 +70,7 @@ class DLinkedList(Iterator,List):
 
 
 
-    def insert(self, __index: int, __object: Any) -> None:
+    def insert(self, __index: int, __object: Any) -> ListNode:
         '''
 
         asdfasdf

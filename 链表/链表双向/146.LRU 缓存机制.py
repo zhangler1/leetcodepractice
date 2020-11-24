@@ -10,12 +10,18 @@ class LRUCache:
 
 
     def get(self, key: int) -> int:
-
-
+        if key in self.map:
+            val=self.cache.pop(self.map[key])
+            self.cache.insert(0,val)
 
     def put(self, key: int, value: int) -> None:
         if self.length<=self.capacity:
-            self.cache.insert(0,value)
+
+            self.map[key]=self.cache.insert(0,(key,value))#映射上链接
+        else:
+
+            self.map.__delitem__(self.cache.pop()[0])  #删除最后一个节点的映射
+            self.map[key]=self.cache.insert(0,(key,value))
 
 if __name__ == '__main__':
     def do (funcs,args):
@@ -32,8 +38,6 @@ if __name__ == '__main__':
                 )
 
 
-
-# Your LRUCache object will be instantiated and called as such:
-# obj = LRUCache(capacity)
-# param_1 = obj.get(key)
-# obj.put(key,value)
+func=["LRUCache","put","put","get","put","get","put","get","get","get"]
+args=[[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]]
+do(func,args)

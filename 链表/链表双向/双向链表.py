@@ -23,15 +23,18 @@ class DLinkedList(Iterator,List):
     @overload
     def pop(self):
         pass
-
+    @overload
+    def pop(self, point:ListNode):
+        pass
     def pop(self, __index: int =...) ->Any :
         '''
-
         :param __index:
         :type __index:
         :return: 
         :rtype:
         '''
+        if self.head.next == self.head:
+            raise IndexError("从空链表里弹出")
         if __index==...:
             if  self.head.next==self.head:
                 raise IndexError("从空链表里弹出")
@@ -43,9 +46,8 @@ class DLinkedList(Iterator,List):
             pre.pre.next=p #
             p.pre=pre.pre
             return pre.val
-        if  self.head.next==self.head:
-            raise IndexError("从空链表里弹出")
-        else:
+
+        elif isinstance(__index,int):
             i=0
             p=self.head
             pre=self.head
@@ -58,6 +60,15 @@ class DLinkedList(Iterator,List):
             p.next=None
             p.pre=None
             return p.val
+        elif isinstance(__index,ListNode):#用节点删除元素
+            pre=__index.pre
+            pre.next=__index.next
+            __index.next.pre=pre
+            __index.next=None
+            __index.pre=None
+            return __index.val
+
+
 
     def insert(self, __index: int, __object: Any) -> None:
         '''
@@ -81,6 +92,7 @@ class DLinkedList(Iterator,List):
         pre.next.pre=pre
         pre.next.next=p
         p.pre=pre.next
+        return pre.next
 
 
 

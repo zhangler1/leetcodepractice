@@ -1,2 +1,4 @@
+#%%
 import numpy as np
-arr=np.empty()
+#%%
+arr=np.empty(2)

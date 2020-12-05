@@ -1,5 +1,6 @@
 from collections import  Counter
 from typing import  List
+import re
 class Solution:
     def fourSumCount(self, A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
 
@@ -11,4 +12,5 @@ class Solution:
                         ans+=countab[-(c+d)]#asdfa
             return ans
 if __name__ == '__main__':
+    re.search(r"")
     print(Solution().fourSumCount([1,2], [-2,-1],[-1,2],[0,2]))

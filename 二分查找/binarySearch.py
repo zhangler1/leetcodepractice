@@ -18,7 +18,7 @@ class Solution:
             if nums[mid]>target:
                 right=mid-1
                 mid=(left+right)//2
-            elif nums[mid]<target:
+            elif nums[mid]<=target:
                 left=mid+1
                 mid=(left+right)//2
             else:

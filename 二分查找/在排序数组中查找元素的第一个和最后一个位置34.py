@@ -9,7 +9,7 @@ def binarySearch(nums: List[int], target: int, leftside=True):
         return -1
 
     left = 0
-    right = len(nums)#用了多一位  防止while时直接跳出
+    right = len(nums)#用了多一位 过while时直接跳出
     if not leftside:
         while (left < right):
             mid = (left + right) // 2

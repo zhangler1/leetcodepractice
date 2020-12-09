@@ -3,7 +3,7 @@
 #3 因为，并查集初始要求，不相邻集合，本题中，0代表无岛屿，1代表“孤立的岛屿” ，将parent数组中，孤立岛屿初始化为-2，无岛屿初始化为-1
 
 from typing import List
-from 树图.并查集.并查集 import UnionFindSet
+from 树与图.并查集.并查集 import UnionFindSet
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
 

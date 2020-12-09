@@ -1,7 +1,7 @@
 #1. 本来想到了多重划分，可是迟疑了，不知道怎么表示，但实际上也就是数组，相互关系一定可以通过数学来表示的
 #2. 对一个对角线格子，顺序编号0-3 ，然后依次处理，相邻的格子关系，以及内部由于划线而形成的关系。
 #3. 最后形成的大并查集非常容易解决划分几块的问题。
-from 树图.并查集.并查集 import UnionFindSet
+from 树与图.并查集.并查集 import UnionFindSet
 from  typing import List
 class Solution:
     def regionsBySlashes(self, grid: List[str]) -> int:

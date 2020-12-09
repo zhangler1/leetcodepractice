@@ -4,7 +4,7 @@
 # 2 find 查询某一个元素属于哪一个集合，一般来说可以用根节点表示。
 #烦的第一个错误就是发现，并查集是disjoint集合的运算，这里遇到了对角线情况 ，有重复元素的话，就不是怎么表示了。
 from  typing import List
-from  树图.并查集.并查集 import UnionFindSet
+from  树与图.并查集.并查集 import UnionFindSet
 class Solution:
     def findCircleNum(self, M: List[List[int]]) -> int:
         disjointSets=UnionFindSet(len(M))

@@ -12,5 +12,4 @@ class Solution:
                         ans+=countab[-(c+d)]#asdfa
             return ans
 if __name__ == '__main__':
-    re.search(r"")
     print(Solution().fourSumCount([1,2], [-2,-1],[-1,2],[0,2]))

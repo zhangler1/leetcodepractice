@@ -17,10 +17,10 @@ class Solution:
             pre=mid
             if nums[mid]>=target:
                 right=mid
-                mid=(left+right)//2
+
             elif nums[mid]<target:
                 left=mid+1
-                mid=(left+right)//2
+            mid=(left+right)//2
 
         return (left+right)/2
 if __name__ == '__main__':

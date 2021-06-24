@@ -24,7 +24,7 @@ class Solution:
 
         return ans
 
-from 二叉树.二叉树的序列化和反序列化 import Codec
+from 数据结构.二叉树的序列化和反序列化 import Codec
 
 if __name__ == '__main__':
     print(Solution().inorderTraversal(Codec().deserialize([3,5,1,6,2,0,8,None,None,7,4])))

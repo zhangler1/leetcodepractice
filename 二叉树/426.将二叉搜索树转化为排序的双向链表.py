@@ -1,4 +1,4 @@
-from 二叉树.二叉树的序列化和反序列化 import Codec
+from 数据结构.二叉树的序列化和反序列化 import Codec
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val

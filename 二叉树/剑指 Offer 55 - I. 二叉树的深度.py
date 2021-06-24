@@ -1,4 +1,4 @@
-from 二叉树.二叉树的序列化和反序列化 import Codec,TreeNode
+from 数据结构.二叉树的序列化和反序列化 import Codec,TreeNode
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
         if not root:

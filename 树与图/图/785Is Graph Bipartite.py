@@ -7,7 +7,7 @@ class Color(Enum):
 class Solution:
     def isBipartite(self, graph: list[list[int]]) -> bool:
         n=len(graph)
-        color=[Color.Uncolored]*n  #use a array to indicate properties of graph vertex
+        color=[Color.Uncolored]*n  #use a 数组array to indicate properties of graph vertex
         valid:bool=True # use a singnal to indicate whether to jump of dfs
         def dfs(vertex:int ,toBeDyed:Color):
             nonlocal valid
@@ -31,7 +31,7 @@ class Solution:
 
     def isBipartiteBfS(self, graph: list[list[int]]) -> bool:
         n=len(graph)
-        color=[Color.Uncolored]*n  #use a array to indicate properties of graph vertex
+        color=[Color.Uncolored]*n  #use a 数组array to indicate properties of graph vertex
         que=deque()
 
 

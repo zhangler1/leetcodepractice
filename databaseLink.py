@@ -6,3 +6,7 @@ cursor.execute("select * from books")
 data=cursor.fetchall()
 print(data)
 db.close()
+
+
+
+11234
